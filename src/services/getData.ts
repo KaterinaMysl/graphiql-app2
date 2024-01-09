@@ -10,11 +10,11 @@ export const getData = async (
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      ...currHeaders,
     },
     body: JSON.stringify({
       query,
       variables: currVariables,
-      headers: currHeaders,
     }),
   });
 
