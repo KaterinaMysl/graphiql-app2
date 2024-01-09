@@ -1,7 +1,7 @@
-import { buildClientSchema, getIntrospectionQuery } from 'graphql/utilities';
-import { Schema } from '../utils/types';
+import { getIntrospectionQuery } from 'graphql/utilities';
+import { SchemaType } from '../utils/types';
 
-export const getSchema = async (endpoint: string): Promise<Schema[]> => {
+export const getSchema = async (endpoint: string): Promise<SchemaType[]> => {
   const introspectionQuery = getIntrospectionQuery();
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -14,14 +14,19 @@ export const getSchema = async (endpoint: string): Promise<Schema[]> => {
 
   const schemaJSON = await response.json();
   const introspectionData = schemaJSON.data;
-  const schema = buildClientSchema(introspectionData);
 
-  const val = Object.values(schema.getTypeMap()).map((type) => {
-    return {
-      label: type.name,
-      type: 'keyword',
-    };
-  });
+  const types = introspectionData.__schema.types.map((type) => ({
+    data: {
+      __schema: {
+        types: [
+          {
+            name: type.name,
+            kind: type.kind,
+          },
+        ],
+      },
+    },
+  }));
 
-  return val;
+  return types;
 };
