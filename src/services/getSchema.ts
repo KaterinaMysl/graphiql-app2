@@ -15,18 +15,5 @@ export const getSchema = async (endpoint: string): Promise<SchemaType[]> => {
   const schemaJSON = await response.json();
   const introspectionData = schemaJSON.data;
 
-  const types = introspectionData.__schema.types.map((type) => ({
-    data: {
-      __schema: {
-        types: [
-          {
-            name: type.name,
-            kind: type.kind,
-          },
-        ],
-      },
-    },
-  }));
-
-  return types;
+  return introspectionData.__schema.types;
 };

@@ -1,8 +1,4 @@
-import { useSelector } from 'react-redux';
 import styles from './DocExplorer.module.css';
-import { selectSchemaResponse } from '../../redux/features/schema/schemaSelector';
-
-console.log('1');
 
 interface DocExplorerProps {
   schema: { name: string; kind: string }[];

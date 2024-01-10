@@ -25,9 +25,6 @@ const GraphQlPage = () => {
     try {
       const currSchema = await getSchema(inputValue);
       setSchema(currSchema);
-      console.log(currSchema);
-      console.log(currSchema.length);
-      
     } catch (error) {
       if (error && error instanceof Error) {
         setError(GraphQlPage.apiError);
@@ -45,13 +42,13 @@ const GraphQlPage = () => {
           <button onClick={handleChangeApi}>change api</button>
         </div>
         <div className={styles.error}>{error !== '' && error}</div>
-        <GraphQLEditor
-          endpoint={inputValue}
-          schema={schema.length ? schema[0].data.__schema.types : []}
-        />
-        <DocExplorer
-          schema={schema.length ? schema[0].data.__schema.types : []}
-        />
+        <div className={styles.container_small}>
+          <GraphQLEditor
+            endpoint={inputValue}
+            schema={schema.length ? schema : []}
+          />
+          <DocExplorer schema={schema.length ? schema : []} />
+        </div>
       </div>
     </>
   );

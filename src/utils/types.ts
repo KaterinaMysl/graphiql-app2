@@ -96,7 +96,6 @@ export interface QueryRequest {
 }
 
 export type SchemaType = {
-  [
   data: {
     __schema: {
       types: {
@@ -104,5 +103,5 @@ export type SchemaType = {
         kind: string;
       };
     };
-  }];
+  };
 };

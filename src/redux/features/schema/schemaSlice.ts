@@ -1,4 +1,3 @@
-/* eslint-disable no-underscore-dangle */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { SchemaType } from '../../../utils/types';
