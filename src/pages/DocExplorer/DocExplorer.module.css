@@ -1,0 +1,41 @@
+.doc {
+  width: 30%;
+  height: 825px;
+  padding: 10px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  @media screen and (max-width: 900px) {
+    height: 500px;
+  }
+  @media screen and (max-width: 700px) {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .doc {
+    width: 100%;
+  }
+}
+
+.heading {
+  width: 100%;
+  font-size: 26px;
+  line-height: 2;
+  text-align: center;
+  color: #fa9e1b;
+  margin-top: 0px;
+}
+
+.data {
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: fit-content;
+  margin: 0 auto;
+  list-style-type: none;
+}
+.name {
+  font-weight: bold;
+}

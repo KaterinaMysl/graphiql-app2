@@ -1,9 +1,15 @@
 .editorsContainer {
   display: flex;
+  width: 70%;
 }
 
 .queryContainer {
   width: 48%;
+}
+@media screen and (max-width: 800px) {
+  .editorsContainer {
+    width: 100%;
+  }
 }
 
 .runBtn {

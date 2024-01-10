@@ -1,11 +1,15 @@
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 50px auto;
   padding: 20px;
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container_small {
+  display: flex;
 }
 
 .title {
@@ -43,4 +47,11 @@
   width: 100%;
   max-width: 150px;
   min-width: 80px;
+}
+
+@media screen and (max-width: 800px) {
+  .container_small {
+    display: flex;
+    flex-direction: column;
+  }
 }
